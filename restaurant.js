@@ -1,16 +1,21 @@
 const express = require('express');
+const path = require('path');
 
 const app = express();
 const PORT = 3000;
 
-let reservation = {
+let reservation = [{
     tableNumber: '',
     tableName: '',
     tableEmail: '',
     tablePhone: '',
-};
+}];
 
 let waitList = '';
+
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname, 'home.html'));
@@ -21,7 +26,20 @@ app.get('/reservation', function (req, res) {
 });
 
 app.get('/waitList', function (req, res) {
-    res.sendFile(path.join(__dirname, 'table.html'));
+    res.sendFile(path.join(__dirname, 'tables.html'));
+});
+
+
+app.post('/api/reservations', function(req, res) {
+    var newReservation = req.body;
+
+    newReservation.routeName = newReservation.tableName.replace(/\s+/g, '').toLowerCase();
+
+    console.log('New Reservation = ' + newReservation);
+
+    reservations.push(newReservation);
+
+    res.json(newReservation);
 });
 
 app.listen(PORT, function() {
