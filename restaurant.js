@@ -4,14 +4,9 @@ const path = require('path');
 const app = express();
 const PORT = 3000;
 
-let reservation = [{
-    tableNumber: '',
-    tableName: '',
-    tableEmail: '',
-    tablePhone: '',
-}];
+let newReservation = [{
 
-let waitList = '';
+}]
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -30,10 +25,8 @@ app.get('/tables', function (req, res) {
 });
 
 
-app.post('/api/reserve', function(req, res) {
+app.post('/api/tables', function(req, res) {
     var newReservation = req.body;
-
-    newReservation.routeName = newReservation.tableName.replace(/\s+/g, '').toLowerCase();
 
     console.log('New Reservation = ' + newReservation);
 
