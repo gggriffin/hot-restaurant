@@ -30,7 +30,7 @@ app.get('/tables', function (req, res) {
 });
 
 
-app.post('/api/reservations', function(req, res) {
+app.post('/api/reserve', function(req, res) {
     var newReservation = req.body;
 
     newReservation.routeName = newReservation.tableName.replace(/\s+/g, '').toLowerCase();
