@@ -3,20 +3,25 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
-var reservation = '';
+let reservation = {
+    tableNumber: '',
+    tableName: '',
+    tableEmail: '',
+    tablePhone: '',
+};
 
-var waitList = '';
+let waitList = '';
 
 app.get('/', function (req, res) {
-    'Welcome to our Hot Restaurant'
+    res.sendFile(path.join(__dirname, 'home.html'));
 });
 
 app.get('/reservation', function (req, res) {
-    res.json(reservation);
+    res.sendFile(path.join(__dirname, 'reserve.html'));
 });
 
 app.get('/waitList', function (req, res) {
-    res.json(waitList);
+    res.sendFile(path.join(__dirname, 'table.html'));
 });
 
 app.listen(PORT, function() {
