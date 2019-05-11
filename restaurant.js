@@ -5,13 +5,16 @@ const app = express();
 const PORT = 3000;
 
 let newReservation = [{
+<<<<<<< HEAD
     customerName: '',
     phoneNumber: '',
     customerEmail: '',
     customerID: '',
 }];
+=======
+>>>>>>> 7a76e593af76319beebfb773abfa06fa8e522425
 
-let waitList = '';
+}]
 
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
@@ -35,7 +38,12 @@ app.get('/api/waitlist', function (req, res) {
 app.post('/api/tables', function(req, res) {
     var reservation = req.body;
 
+<<<<<<< HEAD
     //newReservation.routeName = newReservation.tableName.replace(/\s+/g, '').toLowerCase();
+=======
+app.post('/api/tables', function(req, res) {
+    var newReservation = req.body;
+>>>>>>> 7a76e593af76319beebfb773abfa06fa8e522425
 
     console.log('New Reservation = ' + newReservation);
 
@@ -47,6 +55,7 @@ app.post('/api/tables', function(req, res) {
 app.listen(PORT, function() {
     console.log('App listening on PORT ' + PORT);
 });
+<<<<<<< HEAD
 ''
 
 /*$(".submit").on("click", function(event) {
@@ -89,3 +98,5 @@ app.listen(PORT, function() {
       });
 
   });*/
+=======
+>>>>>>> 7a76e593af76319beebfb773abfa06fa8e522425

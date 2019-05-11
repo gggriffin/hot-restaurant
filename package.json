@@ -21,6 +21,10 @@
   "dependencies": {
     "express": "^4.16.4",
     "jquery": "^3.4.1"
+<<<<<<< HEAD
   },
   "devDependencies": {}
+=======
+  }
+>>>>>>> 7a76e593af76319beebfb773abfa06fa8e522425
 }
